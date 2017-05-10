@@ -13,6 +13,8 @@ var stylizer = require('stylizer');
 var templatizer = require('templatizer');
 var app = express();
 
+// Checking auto lint on git hook
+
 // a little helper for fixing paths for various environments
 var fixPath = function (pathString) {
     return path.resolve(path.normalize(pathString));
