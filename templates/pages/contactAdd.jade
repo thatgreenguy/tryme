@@ -1,0 +1,12 @@
+section.page.add-contact
+
+  h2 Add Contact
+
+  p This form and all behavior is defined by the form view in <code>client/forms/contact.js</code>.
+
+  p The same form-view is used for both editing and creating new contacts.
+
+  form(data-hook="contact-form")
+    fieldset(data-hook="field-container")
+    .buttons
+      button.btn(data-hook="reset", type="submit") Submit

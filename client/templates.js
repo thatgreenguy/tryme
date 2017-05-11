@@ -18,12 +18,17 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/" class="navbar-brand">Just Trying Ampersand</a></div><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/collections">collection demo</a></li><li><a href="/info">more info</a></li></ul></div></nav><div class="container"><main data-hook="page-container"></main><footer class="footer-main"><nav class="nav-footer cf"><div><a href="http://ampersandjs.com/learn" class="nav-item external">Learn</a><a href="http://ampersandjs.com/docs" class="nav-item external">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Modules</a></div><div><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a><a href="http://ampersandjs.com/contribute" class="nav-item external">Contribute</a></div><div><a href="http://ampersandjs.com/security" class="nav-item external">Security</a><a href="https://github.com/ampersandjs" class="nav-item external">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item external">Twitter</a></div></nav><p>Sponsored by <a href="https://andyet.com">&amp;yet </a><br/>with the help of our <a href="http://ampersandjs.com/contribute">contributors</a></p><a href="http://ampersandjs.com" class="logo logo-ampersand-pink">&amp;</a></footer></div></body>';
+        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a href="/" class="navbar-brand">Just Trying Ampersand</a></div><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/collections">collection demo</a></li><li><a href="/contacts">contacts</a></li><li><a href="/info">more infx</a></li></ul></div></nav><div class="container"><main data-hook="page-container"></main><footer class="footer-main"><nav class="nav-footer cf"><div><a href="http://ampersandjs.com/learn" class="nav-item external">Learn</a><a href="http://ampersandjs.com/docs" class="nav-item external">Docs</a><a href="http://tools.ampersandjs.com" class="nav-item external">Modules</a></div><div><a href="https://gitter.im/AmpersandJS/AmpersandJS" class="nav-item external">Chatroom</a><a href="https://trello.com/b/UxylNzHr/ampersand-js-roadmap" class="nav-item external">Roadmap</a><a href="http://ampersandjs.com/contribute" class="nav-item external">Contribute</a></div><div><a href="http://ampersandjs.com/security" class="nav-item external">Security</a><a href="https://github.com/ampersandjs" class="nav-item external">Github</a><a href="https://twitter.com/ampersandjs" class="nav-item external">Twitter</a></div></nav><p>Sponsored by<a href="https://andyet.com">&amp;yet</a><br/>with the help of our<a href="http://ampersandjs.com/contribute">contributors</a></p><a href="http://ampersandjs.com" class="logo logo-ampersand-pink">&amp;</a></footer></div></body>';
     };
 
     // head.jade compiled template
     templatizer["head"] = function tmpl_head() {
         return '<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/><meta name="apple-mobile-web-app-capable" content="yes"/>';
+    };
+
+    // includes/contact.jade compiled template
+    templatizer["includes"]["contact"] = function tmpl_includes_contact() {
+        return '<li class="contact list-group-item container"><a data-hook="contactName"></a><span class="btn-group pull-right"><a data-hook="action-edit" class="btn btn-default">edit</a><a href="#" data-hook="action-delete" class="btn btn-danger">delete</a></span></li>';
     };
 
     // includes/formInput.jade compiled template
@@ -39,6 +44,26 @@
     // pages/collectionDemo.jade compiled template
     templatizer["pages"]["collectionDemo"] = function tmpl_pages_collectionDemo() {
         return '<section class="page pageOne"><h2>Collection demo</h2><p>Intelligently rendering collections can be a bit tricky. </p><p><a href="https://github.com/ampersandjs/ampersand-view">ampersand-view\'s</a> <code>renderCollection()</code> method makes it simple.</p><p>The only code required to manage the collection is:</p><pre><code>this.renderCollection(\n   this.collection, \n   PersonView, \n   this.queryByHook(\'people-list\')\n);</code></pre><h3>People container:</h3><ul data-hook="people-list" class="list-group"></ul><p>Try it by clicking the buttons</p><div class="buttons btn-group"><button data-hook="reset" class="btn btn-default">.reset() </button><button data-hook="fetch" class="btn btn-default">.fetch() </button><button data-hook="shuffle" class="btn btn-default">.shuffle() </button><button data-hook="add" class="btn btn-default">.addRandom()</button><a href="/person/add" class="btn btn-default">Add Person</a></div><p>Events are always managed so you don\'t get any leaks.</p></section>';
+    };
+
+    // pages/contactAdd.jade compiled template
+    templatizer["pages"]["contactAdd"] = function tmpl_pages_contactAdd() {
+        return '<section class="page add-contact"><h2>Add Contact</h2><p>This form and all behavior is defined by the form view in <code>client/forms/contact.js</code>.</p><p>The same form-view is used for both editing and creating new contacts.</p><form data-hook="contact-form"><fieldset data-hook="field-container"></fieldset><div class="buttons"><button data-hook="reset" type="submit" class="btn">Submit</button></div></form></section>';
+    };
+
+    // pages/contactEdit.jade compiled template
+    templatizer["pages"]["contactEdit"] = function tmpl_pages_contactEdit() {
+        return '<section class="page edit-contact"><h2>Edit Contact</h2><p>This form and all behavior is defined by the form view in <code>client/forms/contact.js</code>.</p><p>The same form-view is used for both editing and creating new contacts.</p><form data-hook="contact-form"><fieldset data-hook="field-container"></fieldset><div class="buttons"><button data-hook="reset" type="submit" class="btn">Submit</button></div></form></section>';
+    };
+
+    // pages/contactView.jade compiled template
+    templatizer["pages"]["contactView"] = function tmpl_pages_contactView() {
+        return '<section class="page view-contact"><h2 data-hook="name"></h2><div class="buttons"><a data-hook="edit" class="btn">Edit</a><button data-hook="delete" class="btn">Delete</button></div></section>';
+    };
+
+    // pages/contacts.jade compiled template
+    templatizer["pages"]["contacts"] = function tmpl_pages_contacts() {
+        return '<section class="page pageThree"><h2>Contacts</h2><p>Intelligently rendering collections can be a bit tricky.</p><p><a href="https://github.com/ampersandjs/ampersand-view">ampersand-view\'s</a> <code>renderCollection()</code> method makes it simple.</p><p>The only code required to manage the collection is:</p><pre><code>this.renderCollection(\n   this.collection,\n   PersonView,\n   this.queryByHook(\'people-list\')\n);</code></pre><h3>Contacts container:</h3><ul data-hook="contacts-list" class="list-group"></ul><p>Try it by clicking the buttons</p><div class="buttons btn-group"><button data-hook="reset" class="btn btn-default">.reset()</button><button data-hook="fetch" class="btn btn-default">.fetch()</button><button data-hook="shuffle" class="btn btn-default">.shuffle()</button><button data-hook="add" class="btn btn-default">.addRandom()</button><a href="/contact/add" class="btn btn-default">Add Contact</a></div><p>Events are always managed so you don\'t get any leaks.</p></section>';
     };
 
     // pages/home.jade compiled template

@@ -5,6 +5,7 @@ var Router = require('./router');
 var MainView = require('./views/main');
 var Me = require('./models/me');
 var People = require('./models/persons');
+var Contacts = require('./models/contacts');
 var domReady = require('domready');
 
 // attach our app to `window` so we can
@@ -15,6 +16,7 @@ window.app = app;
 app.extend({
     me: new Me(),
     people: new People(),
+    contacts: new Contacts(),
     router: new Router(),
     // This is where it all starts
     init: function() {

@@ -56,6 +56,11 @@ app.delete('/api/people/:id', api.delete);
 app.put('/api/people/:id', api.update);
 app.post('/api/people', api.add);
 
+app.get('/api/contacts', api.list);
+app.get('/api/contacts/:id', api.get);
+app.delete('/api/contacts/:id', api.delete);
+app.put('/api/contacts/:id', api.update);
+app.post('/api/contacts', api.add);
 
 // -----------------
 // Enable the functional test site in development
