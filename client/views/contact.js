@@ -5,7 +5,7 @@ var templates = require('../templates');
 module.exports = View.extend({
     template: templates.includes.contact,
     bindings: {
-        'model.name': '[data-hook~=name]',
+        'model.name': '[data-hook=name]',
         'model.editUrl': {
             type: 'attribute',
             hook: 'action-edit',

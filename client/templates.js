@@ -28,7 +28,7 @@
 
     // includes/contact.jade compiled template
     templatizer["includes"]["contact"] = function tmpl_includes_contact() {
-        return '<li class="contact list-group-item container"><a data-hook="contactName"></a><span class="btn-group pull-right"><a data-hook="action-edit" class="btn btn-default">edit</a><a href="#" data-hook="action-delete" class="btn btn-danger">delete</a></span></li>';
+        return '<li class="contact list-group-item container"><a data-hook="name"></a><span class="btn-group pull-right"><a data-hook="action-edit" class="btn btn-default">edit</a><a href="#" data-hook="action-delete" class="btn btn-danger">delete</a></span></li>';
     };
 
     // includes/formInput.jade compiled template

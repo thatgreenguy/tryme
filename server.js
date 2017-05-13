@@ -56,11 +56,11 @@ app.delete('/api/people/:id', api.delete);
 app.put('/api/people/:id', api.update);
 app.post('/api/people', api.add);
 
-app.get('/api/contacts', api.list);
-app.get('/api/contacts/:id', api.get);
-app.delete('/api/contacts/:id', api.delete);
-app.put('/api/contacts/:id', api.update);
-app.post('/api/contacts', api.add);
+app.get('/api/contacts', api.contactlist);
+app.get('/api/contacts/:id', api.contactget);
+app.delete('/api/contacts/:id', api.contactdelete);
+app.put('/api/contacts/:id', api.contactupdate);
+app.post('/api/contacts', api.contactadd);
 
 // -----------------
 // Enable the functional test site in development

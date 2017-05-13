@@ -39,6 +39,30 @@ var people = [
         coolnessFactor: 4
     }
 ];
+
+var contacts = [
+    {
+        id: 1,
+        name: 'Jack Jones',
+        number: '01908 112233',
+        note: 'trade in astra for new kia coming in next week'
+    },
+    {
+        id: 2,
+        name: 'Jack Jones',
+        number: '01201 112233',
+        note: 'Renwe same vehicle for another 18 months PCP'
+    },
+    {
+        id: 3,
+        name: 'Stan Stone',
+        number: '01525 112233',
+        note: 'Interested in new Santa Fe but only wants black one'
+    }
+];
+
+// Handle People
+
 var id = 7;
 
 function get(id) {
@@ -70,6 +94,44 @@ exports.delete = function (req, res) {
 };
 
 exports.update = function (req, res) {
+    var found = get(req.params.id);
+    if (found) _.extend(found, req.body);
+    res.status(found ? 200 : 404);
+    res.send(found);
+};
+
+// Handle Contacts
+var contactId = 4;
+
+function contactget(id) {
+    return _.findWhere(contacts, {id: parseInt(contactId + '', 10)});
+}
+
+exports.contactlist = function (req, res) {
+    res.send(contacts);
+};
+
+exports.contactadd = function (req, res) {
+    var contact = req.body;
+    contact.id = contactId++;
+    contacts.push(contact);
+    res.status(201).send(contact);
+};
+
+exports.contactget = function (req, res) {
+    var found = get(req.params.id);
+    res.status(found ? 200 : 404);
+    res.send(found);
+};
+
+exports.contactdelete = function (req, res) {
+    var found = get(req.params.id);
+    if (found) contacts = _.without(contacts, found);
+    res.status(found ? 200 : 404);
+    res.send(found);
+};
+
+exports.contactupdate = function (req, res) {
     var found = get(req.params.id);
     if (found) _.extend(found, req.body);
     res.status(found ? 200 : 404);

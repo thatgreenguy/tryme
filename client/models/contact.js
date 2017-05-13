@@ -4,34 +4,34 @@ var AmpersandModel = require('ampersand-model');
 module.exports = AmpersandModel.extend({
     props: {
         id: 'any',
-        contactName: ['string', true, ''],
-        contactNumber: ['string', true, ''],
-        contactNote: ['string', true, '']
+        name: ['string', true, ''],
+        number: ['string', true, ''],
+        note: ['string', true, '']
     },
     session: {
         selected: ['boolean', true, false]
     },
     derived: {
         title: {
-            deps: ['contactName'],
+            deps: ['name'],
             fn: function () {
                 return this.name + ' ' + ' title';
             }
         },
         forename: {
-            deps: ['contactName'],
+            deps: ['name'],
             fn: function () {
                 return this.name + ' ' + ' surname';
             }
         },
         middlename: {
-            deps: ['contactName'],
+            deps: ['name'],
             fn: function () {
                 return this.name + ' ' + ' forename';
             }
         },
         surname: {
-            deps: ['contactName'],
+            deps: ['name'],
             fn: function () {
                 return this.name + ' ' + ' surname';
             }

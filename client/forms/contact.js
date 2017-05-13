@@ -10,22 +10,22 @@ module.exports = FormView.extend({
         return [
             new ExtendedInput({
                 label: 'Name',
-                name: 'contactName',
-                value: this.model && this.model.contactName,
+                name: 'name',
+                value: this.model && this.model.name,
                 placeholder: 'Contact Name',
                 parent: this
             }),
             new ExtendedInput({
                 label: 'Number',
-                name: 'contactNumber',
-                value: this.model && this.model.contactNumber,
+                name: 'number',
+                value: this.model && this.model.number,
                 placeholder: 'Contact Number',
                 parent: this
             }),
             new ExtendedInput({
                 label: 'Note',
-                name: 'contactNote',
-                value: this.model && this.model.contactNote,
+                name: 'note',
+                value: this.model && this.model.note,
                 placeholder: 'Note',
                 parent: this
             }),
