@@ -49,7 +49,7 @@ var contacts = [
     },
     {
         id: 2,
-        name: 'Jack Jones',
+        name: 'Tiny Temper',
         number: '01201 112233',
         note: 'Renwe same vehicle for another 18 months PCP'
     },
@@ -104,7 +104,7 @@ exports.update = function (req, res) {
 var contactId = 4;
 
 function contactget(id) {
-    return _.findWhere(contacts, {id: parseInt(contactId + '', 10)});
+    return _.findWhere(contacts, {id: parseInt(id + '', 10)});
 }
 
 exports.contactlist = function (req, res) {
@@ -119,20 +119,21 @@ exports.contactadd = function (req, res) {
 };
 
 exports.contactget = function (req, res) {
-    var found = get(req.params.id);
+    var found = contactget(req.params.id);
     res.status(found ? 200 : 404);
     res.send(found);
 };
 
 exports.contactdelete = function (req, res) {
-    var found = get(req.params.id);
+
+    var found = contactget(req.params.id);
     if (found) contacts = _.without(contacts, found);
     res.status(found ? 200 : 404);
     res.send(found);
 };
 
 exports.contactupdate = function (req, res) {
-    var found = get(req.params.id);
+    var found = contactget(req.params.id);
     if (found) _.extend(found, req.body);
     res.status(found ? 200 : 404);
     res.send(found);

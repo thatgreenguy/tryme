@@ -45,6 +45,22 @@ app.use(helmet.nosniff());
 
 app.set('view engine', 'jade');
 
+// --------------------
+// PJG Added in CORS Headers
+// --------------------
+app.all('/*', function(req, res, next) {
+  // CORS headers
+  // "Access-Control-Allow-Origin", "http://foo.com" would restrict access to this domain rather than "*" any domain
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  // Set custom headers for CORS
+  res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token,X-Key');
+  if (req.method == 'OPTIONS') {
+    res.status(200).end();
+  } else {
+    next();
+  }
+});
 
 // -----------------
 // Set up our little demo API
